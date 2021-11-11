@@ -4,7 +4,6 @@ from models.client import *
 from models.message import * 
 from core.constants import * 
 
-
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server.bind((HOST,PORT))
 server.listen()

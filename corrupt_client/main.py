@@ -29,12 +29,12 @@ def receiveMessage():
             if content == 'getUser' and type == 1:
                 server.send(username.encode('utf-8'))
             elif(type == 2):
-                if(verifyIntegrity(content, digest)):
-                    if(sender != username):
-                        print(f'{sender}:  {content}')
-                    continue
-                else:
-                    print(f'\033[93m {sender}:  Mensagem possívelmente adulterada! ')
+                if(sender != username):
+                    if(verifyIntegrity(content, digest)):
+                        print(f'{sender}:  {content}')                        
+                    else:
+                        print(f'\033[93m {sender}:  Mensagem possívelmente adulterada! ')
+                else: continue
             else:
                 print(f'{content}')
         except:
